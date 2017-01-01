@@ -1,6 +1,6 @@
 # Requestinator
 
-A standalone executable that has functionality inspired by [RequestBin](https://requestb.in/).
+A *standalone executable* that has functionality inspired by [RequestBin](https://requestb.in/).
 
 You create a "bin" that is represented by a URL. All HTTP interaction with that "bin" (URL) is recorded and can be interrogated using the API.
 
@@ -15,6 +15,10 @@ This project is in the spirit of RequestBin, but is not 100% compatible. The maj
 3. Each request header value is an array of strings. HTTP headers can have multiple values. This project stores header values in an array. RequestBin joins multiple values so each header value is one string.
 4. No HTML interface, yet.
 5. No external persistence. All bins are stored in memory and lost when the server exits.
+
+## Stability
+
+This project is brand new and the API interface may change slightly.
 
 ## Installing Requestinator
 
@@ -68,7 +72,7 @@ curl localhost:8080/api/v1/bins/akl5p55kim
 
 Response:
 ```
-{"name":"akl5p55kim","request_count":2}
+{"name":"akl5p55kim","request_count":1}
 ```
 
 ### Get request information
@@ -111,6 +115,9 @@ Response made pretty using jq:
 
 ## FAQ
 
+### How is this different from RequestBin?
+This is a standalone executable with nothing else to install. You run it locally rather than using a hosted service.
+
 ### Why did you write this?
 We were using a self hosted RequestBin server for some integration tests. This seemed like a simpler solution to me.
 
@@ -129,14 +136,17 @@ No.
 ### Should I run this on the public internet?
 No.
 
-### Is there an SBT plugin?
+### What happens if I run this service for a long time?
+The bins are stored in memory and do not time out. Each request to the service will be recorded and consume a little more memory. Eventually the service will run out of memory and crash.
+
+### Is there an SBT plugin to run this as part of my build?
 That's an odd question. Are you reading my mind? No, not yet.
 
 ### Why didn't you vendor your dependencies?
 Very good question. I should probably take care of that.
 
 ### Can I mock an external service by having requestinator respond with predetermined HTTP responses?
-Not yet, but I would like that as well. If you're feeling up to it, open a pull request.
+Not yet, but I like the idea. If you're feeling up to it, open a pull request.
 
 ### Why did you use this non-idiomatic way of doing something with golang?
 Because I don't know go very well. Let me know if something makes your golang brain angry.
