@@ -1,5 +1,7 @@
 # Requestinator
 
+[![Build Status](https://travis-ci.org/DonMcNamara/requestinator.svg?branch=master)](https://travis-ci.org/DonMcNamara/requestinator)
+
 A *standalone executable* that has functionality inspired by [RequestBin](https://requestb.in/).
 
 You create a "bin" that is represented by a URL. All HTTP interaction with that "bin" (URL) is recorded and can be interrogated using the API.
