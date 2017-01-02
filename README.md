@@ -142,9 +142,6 @@ The bins are stored in memory and do not time out. Each request to the service w
 ### Is there an SBT plugin to run this as part of my build?
 That's an odd question. Are you reading my mind? No, not yet.
 
-### Why didn't you vendor your dependencies?
-Very good question. I should probably take care of that.
-
 ### Can I mock an external service by having requestinator respond with predetermined HTTP responses?
 Not yet, but I like the idea. If you're feeling up to it, open a pull request.
 
